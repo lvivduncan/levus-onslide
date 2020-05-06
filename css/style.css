@@ -1,0 +1,289 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root{
+  --light: #fff;
+  --black: #000;
+}
+
+/* /////////////////
+обгортка для слайдів
+///////////////// */
+
+#levus-slider {
+  height: 530px;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+/* //////////////
+кнопки управління
+////////////// */
+
+#levus-left,
+#levus-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  width: 50px;
+  height: 50px;
+  background: red;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* вліво */
+#levus-left {
+  left: 50px;
+}
+
+/* вправо */
+#levus-right {
+  right: 50px;
+}
+
+/* ///
+слайд 
+/// */
+
+/* прихований по дефолту */
+#levus-slider article {
+  background-size: cover !important;
+  background-position: center !important;
+  height: 530px;
+  width: 100%;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-transition: background 1s;
+  transition: background 1s;
+}
+
+/* затемнення */
+#levus-slider article::after{
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background: rgba(0,0,0,0.7);
+}
+
+/* активний слайд */
+#levus-slider article.show {
+  visibility: visible;
+  
+  -webkit-animation: background-show 3s linear;
+  animation: background-show 3s linear;
+}
+
+/* //////////////
+контент на слайді
+////////////// */
+
+.levus-content {
+  width: 1200px;
+  height: 530px;
+  padding: 100px 0;
+  margin: auto;
+  overflow: hidden;
+
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    'levus-p1 levus-img'
+    'levus-p2 levus-img'
+    'levus-p3 levus-img'
+}
+
+/* ////////////
+блоки на слайді 
+//////////// */
+
+/* картинка знизу*/
+.levus-content img {
+  grid-area: levus-img;
+
+  transform: translateY(200%);
+}
+
+/* 1 текст зліва */
+.levus-content p:nth-child(1) {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--light);
+  grid-area: levus-p1;
+  align-self: end;
+
+  transform: scaleY(0);
+}
+
+/* 2 текст зліва */
+.levus-content p:nth-child(2) {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--light);
+  grid-area: levus-p2;
+  align-self: center;
+
+  transform: scaleY(0);
+}
+
+/* 3 текст зліва */
+.levus-content p:nth-child(3) {
+  font-size: 20px;
+  color: var(--light);
+  grid-area: levus-p3;
+  align-self: start;
+
+  transform: translateX(-100%);
+
+}
+
+/* ///////////////////
+блоки активного слайда
+/////////////////// */
+
+.show .levus-content img {
+  -webkit-animation: img-0 1500ms linear forwards 1s;
+  animation: img-0 1500ms linear forwards 1s;  
+}
+
+.show .levus-content p:nth-child(1){
+  -webkit-animation: p-1 500ms linear forwards 1500ms;
+  animation: p-1 500ms linear forwards 1500ms;
+}
+
+.show .levus-content p:nth-child(2){
+  -webkit-animation: p-2 500ms linear forwards 2s;
+  animation: p-2 500ms linear forwards 2s;
+}
+
+.show .levus-content p:nth-child(3){
+  -webkit-animation: p-3 1500ms linear forwards 2500ms;
+  animation: p-3 1500ms linear forwards 2500ms;
+}
+
+/* /////////////
+анімація слайдів
+///////////// */
+
+/* анімація фону*/
+@-webkit-keyframes background-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes background-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* анімація картинки */
+@-webkit-keyframes img-0 {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes img-0 {
+  0% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* анімація 1 параграфа*/
+@-webkit-keyframes p-1 {
+  0%{
+    transform: scaleY(0);
+  }
+  50%{
+    transform: scaleY(-1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+@keyframes p-1 {
+  0%{
+    transform: scaleY(0);
+  }
+  50%{
+    transform: scaleY(-1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+
+/* анімація 2 параграфа*/
+@-webkit-keyframes p-2 {
+  0%{
+    transform: scaleY(0);
+  }
+  50%{
+    transform: scaleY(-1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+@keyframes p-2 {
+  0%{
+    transform: scaleY(0);
+  }
+  50%{
+    transform: scaleY(-1);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+
+/* анімація 3 параграфа*/
+@-webkit-keyframes p-3 {
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes p-3 {
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
