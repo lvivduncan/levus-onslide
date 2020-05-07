@@ -129,15 +129,44 @@
     'levus-p3 levus-img'
 }
 
+@media(max-width: 1250px){
+  .levus-content{
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+@media(max-width: 991px){
+  .levus-content{
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      'levus-p1'
+      'levus-p2'
+      'levus-p3'
+      'levus-img'
+  }
+}
+
 /* ////////////
 блоки на слайді 
 //////////// */
 
 /* картинка знизу*/
 .levus-content img {
+  max-width: 100%!important;
+  height: auto!important;
+
   grid-area: levus-img;
 
   transform: translateY(200%);
+}
+
+@media(max-width: 991px){
+  .levus-content img{
+    margin: auto;
+  }
 }
 
 /* 1 текст зліва */
