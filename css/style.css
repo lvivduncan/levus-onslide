@@ -38,6 +38,7 @@
   opacity: .5;
   -webkit-transition: all 500ms;
   transition: all 500ms;
+  -webkit-transform: translate(0);
   transform: translate(0);
 }
 
@@ -71,10 +72,12 @@
 }
 
 #levus-left.hide {
+  -webkit-transform: translateX(-150px);
   transform: translateX(-150px);
 }
 
 #levus-right.hide {
+  -webkit-transform: translateX(150px);
   transform: translateX(150px);
 }
 
@@ -173,6 +176,7 @@
 
   grid-area: levus-img;
 
+  -webkit-transform: translateY(200%);
   transform: translateY(200%);
 }
 
@@ -191,6 +195,7 @@
   grid-area: levus-p1;
   align-self: end;
 
+  -webkit-transform: scaleY(0);
   transform: scaleY(0);
 }
 
@@ -211,6 +216,7 @@
   grid-area: levus-p2;
   align-self: center;
 
+  -webkit-transform: scaleY(0);
   transform: scaleY(0);
 }
 
@@ -230,8 +236,8 @@
   grid-area: levus-p3;
   align-self: start;
 
+  -webkit-transform: translateX(-110%);
   transform: translateX(-110%);
-
 }
 
 @media(max-width:776px) {
@@ -293,11 +299,11 @@
 /* анімація картинки */
 @-webkit-keyframes img-0 {
   0% {
-    transform: translateY(200%);
+    -webkit-transform: translateY(200%);
   }
 
   100% {
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
   }
 }
 
@@ -315,15 +321,15 @@
 /* анімація 1 параграфа*/
 @-webkit-keyframes p-1 {
   0% {
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
   }
 
   50% {
-    transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
   }
 
   100% {
-    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
   }
 }
 
@@ -344,15 +350,15 @@
 /* анімація 2 параграфа*/
 @-webkit-keyframes p-2 {
   0% {
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
   }
 
   50% {
-    transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
   }
 
   100% {
-    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
   }
 }
 
@@ -373,11 +379,11 @@
 /* анімація 3 параграфа*/
 @-webkit-keyframes p-3 {
   0% {
-    transform: translateX(-110%);
+    -webkit-transform: translateX(-110%);
   }
 
   100% {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
   }
 }
 
