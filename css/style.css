@@ -34,10 +34,11 @@
   margin-top: -25px;
   border: 30px solid;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
   opacity: .5;
-  -webkit-transition: opacity 500ms;
-  transition: opacity 500ms;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+  transform: translate(0);
 }
 
 #levus-left:hover,
@@ -55,6 +56,13 @@
 #levus-right {
   right: 50px;
   border-color: transparent transparent transparent var(--light);
+}
+
+#levus-left.hide{
+  transform: translateX(-150px);
+}
+#levus-right.hide{
+  transform: translateX(150px);
 }
 
 /* ///
@@ -134,6 +142,7 @@
 
 /* 1 текст зліва */
 .levus-content p:nth-child(1) {
+  margin: 0 50px 5px;
   font-size: 40px;
   font-weight: bold;
   color: var(--light);
@@ -145,6 +154,7 @@
 
 /* 2 текст зліва */
 .levus-content p:nth-child(2) {
+  margin: 0 50px 5px;
   font-size: 40px;
   font-weight: bold;
   color: var(--light);
@@ -156,12 +166,13 @@
 
 /* 3 текст зліва */
 .levus-content p:nth-child(3) {
+  margin: 0 50px 5px;
   font-size: 20px;
   color: var(--light);
   grid-area: levus-p3;
   align-self: start;
 
-  transform: translateX(-100%);
+  transform: translateX(-110%);
 
 }
 
@@ -281,7 +292,7 @@
 /* анімація 3 параграфа*/
 @-webkit-keyframes p-3 {
   0%{
-    transform: translateX(-100%);
+    transform: translateX(-110%);
   }
   100%{
     transform: translateX(0);
@@ -289,7 +300,7 @@
 }
 @keyframes p-3 {
   0%{
-    transform: translateX(-100%);
+    transform: translateX(-110%);
   }
   100%{
     transform: translateX(0);
