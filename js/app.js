@@ -1,81 +1,78 @@
-// обгортка
-const slider = document.querySelector('#levus-slider');
+{
+  'use strict';
 
-// елементи
-const slides = slider.querySelectorAll('article');
+  // обгортка
+  const slider = document.querySelector('#levus-slider');
 
-// вліво
-const left = slider.querySelector('#levus-left');
+  // елементи
+  const slides = slider.querySelectorAll('article');
 
-// вправо
-const right = slider.querySelector('#levus-right');
+  // вліво
+  const left = slider.querySelector('#levus-left');
 
-// лічильник
-let cnt = 0;
+  // вправо
+  const right = slider.querySelector('#levus-right');
 
-// кількість елементів
-const length = slides.length - 1;
+  // лічильник
+  let cnt = 0;
 
-// клік на ліву кнопку
-left.addEventListener('click', () => {
-  setTimeout(() => {    
-    slides.forEach(slide => slide.removeAttribute('class'));
-    if(cnt < length) cnt++;
-    else cnt = 0;
-    slides[cnt].classList.add('show');
-  }, 500);
-});
+  // кількість елементів
+  const length = slides.length - 1;
 
-// клік на праву кнопку
-right.addEventListener('click', () => {
-  setTimeout(() => {    
-    slides.forEach(slide => slide.removeAttribute('class'));
-    if(cnt === 0) cnt = length;
-    else cnt--;
-    slides[cnt].classList.add('show');
-  }, 500);
-});
-
-// показуємо стрілочки при завантаженні
-document.addEventListener('DOMContentLoaded', () => {
-  if(window.innerWidth > 1200){
-    hideArrow();
-  } else {
-    showArrow();
-  }
-});
-
-// показуємо при зміні розміру екрану
-window.addEventListener('resize', () => {
-  if(window.innerWidth > 1200){
-    hideArrow();
-  } else {
-    showArrow();
-  }
-});
-
-// сховати стрілки
-function hideArrow(){
-
-  // ховаємо
-  left.classList.add('hide');
-  right.classList.add('hide');
-
-  // показати стрілки при наведенні на слайдер
-  slider.addEventListener('mouseover', () => {
-      left.removeAttribute('class');
-      right.removeAttribute('class');
+  // клік на ліву кнопку
+  left.addEventListener('click', () => {
+    setTimeout(() => {
+      slides.forEach(slide => slide.removeAttribute('class'));
+      cnt < length ? cnt++ : cnt = 0;
+      slides[cnt].classList.add('show');
+    }, 500);
   });
-  
+
+  // клік на праву кнопку
+  right.addEventListener('click', () => {
+    setTimeout(() => {
+      slides.forEach(slide => slide.removeAttribute('class'));
+      cnt === 0 ? cnt = length : cnt--;
+      slides[cnt].classList.add('show');
+    }, 500);
+  });
+
+  // показуємо стрілочки при завантаженні
+  document.addEventListener('DOMContentLoaded', () => {
+    window.innerWidth < 1200 ? autoScroll() : hideArrow();
+  });
+
+  // показуємо при зміні розміру екрану
+  window.addEventListener('resize', () => {
+    window.innerWidth < 1200 ? autoScroll() : hideArrow();
+  });
+
   // сховати стрілки
-  slider.addEventListener('mouseout', () => {
+  function hideArrow() {
+
+    // ховаємо
     left.classList.add('hide');
     right.classList.add('hide');
-  });
-}
 
-// показати стрілки
-function showArrow(){
-  left.removeAttribute('class');
-  right.removeAttribute('class');
+    // показати стрілки при наведенні на слайдер
+    slider.addEventListener('mouseover', () => {
+      left.removeAttribute('class');
+      right.removeAttribute('class');
+    });
+
+    // сховати стрілки
+    slider.addEventListener('mouseout', () => {
+      left.classList.add('hide');
+      right.classList.add('hide');
+    });
+  }
+
+  // автоскрол на мобільних + приховати стрілки
+  function autoScroll(){   
+    setInterval(() => {
+      slides.forEach(slide => slide.removeAttribute('class'));
+      cnt < length ? cnt++ : cnt = 0;
+      slides[cnt].classList.add('show');
+    }, 8000);
+  }
 }
