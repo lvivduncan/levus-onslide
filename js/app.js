@@ -7,6 +7,9 @@
   // елементи
   const slides = slider.querySelectorAll('article');
 
+  // 1 елемент
+  const first = slider.querySelector('article');
+
   // вліво
   const left = slider.querySelector('#levus-left');
 
@@ -40,6 +43,11 @@
   // показуємо стрілочки при завантаженні
   document.addEventListener('DOMContentLoaded', () => {
     window.innerWidth < 1200 ? autoScroll() : hideArrow();
+  });
+
+  // присвоюємо клас 1 елементу
+  document.addEventListener('DOMContentLoaded', () => {
+    first.classList.add('show');
   });
 
   // показуємо при зміні розміру екрану
