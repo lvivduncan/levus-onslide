@@ -41,19 +41,13 @@
   });
 
   // показуємо стрілочки при завантаженні
-  document.addEventListener('DOMContentLoaded', () => {
-    window.innerWidth < 1200 ? autoScroll() : hideArrow();
-  });
+  document.addEventListener('DOMContentLoaded', () => indow.innerWidth < 1200 ? autoScroll() : hideArrow());
 
   // присвоюємо клас 1 елементу
-  document.addEventListener('DOMContentLoaded', () => {
-    first.classList.add('show');
-  });
+  document.addEventListener('DOMContentLoaded', () => first.classList.add('show'));
 
   // показуємо при зміні розміру екрану
-  window.addEventListener('resize', () => {
-    window.innerWidth < 1200 ? autoScroll() : hideArrow();
-  });
+  window.addEventListener('resize', () => window.innerWidth < 1200 ? autoScroll() : hideArrow());
 
   // сховати стрілки
   function hideArrow() {
