@@ -8,7 +8,7 @@
   const slides = slider.querySelectorAll('article');
 
   // 1 елемент
-  const first = slider.querySelector('article');
+  const first = slides[0];
 
   // вліво
   const left = slider.querySelector('#levus-left');
