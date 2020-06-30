@@ -39,7 +39,7 @@ class LevusOnslide {
     });
   }
 
-  hideArrow() {
+  arrow() {
     // ховаємо
     this.left.classList.add('hide');
     this.right.classList.add('hide');
@@ -69,13 +69,13 @@ class LevusOnslide {
     this.click();
 
     // присвоюємо клас 1 елементу
-    document.addEventListener('DOMContentLoaded', () => this.first.classList.add('show'));
-
+    this.first.classList.add('show');
+    
     // показуємо стрілочки при завантаженні
-    document.addEventListener('DOMContentLoaded', () => window.innerWidth < 1200 ? this.autoScroll() : this.hideArrow());
-
-    // показуємо при зміні розміру екрану
-    window.addEventListener('resize', () => window.innerWidth < 1200 ? this.autoScroll() : this.hideArrow());
+    this.arrow();
+    
+    // автоскрол на екрані менше 1200
+    window.addEventListener('resize', () => window.innerWidth < 1200 && this.autoScroll());
   }
 }
 
