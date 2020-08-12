@@ -1,4 +1,4 @@
-//30-06-2020
+//12-08-2020
 
 class LevusOnslide {
     constructor(slider) {
