@@ -1,3 +1,4 @@
-example: https://lvivduncan.github.io/levus-onslide/
+# levus-onslide (2)
+## з 1 текстовим блоком, а не з 3, як в оригінальному
 
-Якщо раптом джаваскрипт вимкнено, то все одно буде показано анімацію 1 слайда.
+example: https://lvivduncan.github.io/levus-onslide-2/
